@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Musicala · Manos en Movimiento</title>
+  <meta name="theme-color" content="#121223"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <header class="app-header">
+    <div class="wrap">
+      <div class="brand">
+        <img src="logo.png" alt="Logo Musicala" class="logo"/>
+        <div class="titles">
+          <h1>Manos en Movimiento</h1>
+          <p class="subtitle">Ejercicios de coordinación y disociación 🥁</p>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="playBtn" class="btn">▶️ Iniciar</button>
+        <button id="stopBtn" class="btn ghost">⏹️ Detener</button>
+        <button id="genBtn" class="btn ghost">🔄 Generar</button>
+      </div>
+    </div>
+
+    <div class="controls">
+      <label>
+        Longitud:
+        <select id="lenSel">
+          <option value="4" selected>4 tiempos</option>
+          <option value="8">8 tiempos</option>
+          <option value="12">12 tiempos</option>
+        </select>
+      </label>
+
+      <div class="speed-group" role="group" aria-label="Velocidad">
+        <span class="ctrl-label">Velocidad:</span>
+        <button class="btn speed-btn" data-bpm="60" data-speed="lento" aria-pressed="true">🐢 Lento</button>
+        <button class="btn speed-btn ghost" data-bpm="90" data-speed="regular" aria-pressed="false">🐾 Regular</button>
+        <button class="btn speed-btn ghost" data-bpm="120" data-speed="rapido" aria-pressed="false">🚀 Rápido</button>
+      </div>
+    </div>
+
+    <!-- Nueva fila de controles para ejercicios -->
+    <div class="controls">
+      <label>
+        Ejercicios:
+        <select id="levelSel" title="Elegir tipo de ejercicios">
+          <option value="random" selected>🎲 Aleatorio</option>
+          <option value="basic">🟢 Básico (alternancias)</option>
+          <option value="intermediate">🟡 Intermedio (dobles/acentos)</option>
+          <option value="advanced">🔴 Avanzado (paradiddles y mixtos)</option>
+        </select>
+      </label>
+
+      <div class="preset-nav">
+        <button id="prevBtn" class="btn ghost" title="Ejercicio anterior">⟨ Anterior</button>
+        <button id="nextBtn" class="btn ghost" title="Ejercicio siguiente">Siguiente ⟩</button>
+      </div>
+
+      <small class="hint">
+        Tip: Usa “Básico, Intermedio o Avanzado” para seguir una ruta progresiva. En “Aleatorio” se generan combinaciones nuevas.
+      </small>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Secuencia horizontal con manos grandes (el tamaño se ajusta desde JS según 4/8/12) -->
+    <section class="sequence-container">
+      <div id="sequence" class="sequence sequence-horizontal">
+        <!-- Beats dinámicos -->
+      </div>
+    </section>
+
+    <section class="info">
+      <h2>Combinación actual</h2>
+      <div id="comboText" class="combo-text">R L R L</div>
+      <p class="tip">
+        Sigue la iluminación de las manos y elige la velocidad “Lento, Regular o Rápido”. Si escoges un nivel, podrás avanzar con los botones de “Anterior” y “Siguiente”.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>© <span id="year"></span> Escuela de Artes Musicala · Batería — Experiencia I</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
